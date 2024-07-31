@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6o8mexk1ndvs"]
+
+[ext_resource type="Texture2D" uid="uid://de1072qbixjca" path="res://images/ball.png" id="1_qlald"]
+
+[sub_resource type="GDScript" id="GDScript_76cwp"]
+script/source = "extends Area2D
+
+var velocity = Vector2(300, 300) # Velocità iniziale della palla
+
+func _physics_process(delta):
+	# Muovi la palla
+	position += velocity * delta
+
+	# Controlla i bordi dello schermo
+	if position.y < 0 or position.y > get_viewport_rect().size.y:
+		velocity.y = -velocity.y  # Rimbalza in alto e in basso
+
+	if position.x < 0 or position.x > get_viewport_rect().size.x:
+		velocity.x = -velocity.x  # Rimbalza a sinistra e a destra
+
+func _on_body_entered(body):
+	print(\"Collisione con: \", body.name)
+	if body.name == \"Player\":
+		print(\"Collisione con il player!\")
+		# Inverti la direzione orizzontale della palla
+		velocity.x = -velocity.x
+
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ffqr2"]
+radius = 4.0
+
+[node name="Area2D" type="Area2D"]
+script = SubResource("GDScript_76cwp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qlald")
+
+[node name="BallCollision" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_ffqr2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

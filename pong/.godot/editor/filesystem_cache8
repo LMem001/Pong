@@ -1,0 +1,14 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1722457244
+README.md::TextFile::-1::1722198310::0::1::::<><>::
+::res://images/::1722288688
+ball.png::CompressedTexture2D::7495267760365470272::1722198310::1722288678::1::::<><>::
+icon.png::CompressedTexture2D::4610412565129398426::1722198310::1722288678::1::::<><>::
+paddle.png::CompressedTexture2D::5232242084809609046::1722198310::1722288678::1::::<><>::
+separator.png::CompressedTexture2D::1469525481837649964::1722198310::1722288688::1::::<><>::
+::res://scenes/::1722439825
+ball.tscn::PackedScene::8414937670961835032::1722439509::0::1::::<><>::uid://de1072qbixjca::::res://images/ball.png
+paddle.tscn::PackedScene::2155670807175642067::1722439510::0::1::::<><>::uid://cgssi6xba8k7g::::res://images/paddle.png
+player1.gd::GDScript::-1::1722438229::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::472621045508374430::1722439509::0::1::::<><>::res://scenes/player1.gd<>uid://5yht3h6u05qt::::res://scenes/paddle.tscn
+pong.tscn::PackedScene::8085073880355756374::1722439680::0::1::::<><>::res://scenes/Stage.gd<>uid://gy688rbw17ao::::res://scenes/player.tscn<>uid://u634tx57l4r5::::res://images/separator.png

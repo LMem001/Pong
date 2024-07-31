@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dngp8rkwrasq5"]
+
+[ext_resource type="PackedScene" uid="uid://gy688rbw17ao" path="res://scenes/player.tscn" id="1_rcrb6"]
+[ext_resource type="Texture2D" uid="uid://u634tx57l4r5" path="res://images/separator.png" id="2_q2wxf"]
+
+[node name="Pong" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 639.0
+offset_bottom = 400.0
+color = Color(0.276873, 0.315579, 0.357699, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_rcrb6")]
+position = Vector2(49, 183)
+
+[node name="Separator" type="Sprite2D" parent="."]
+position = Vector2(320, 200)
+scale = Vector2(0.955011, 1.00528)
+texture = ExtResource("2_q2wxf")
