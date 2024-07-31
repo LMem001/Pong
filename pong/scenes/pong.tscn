@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dngp8rkwrasq5"]
+[gd_scene load_steps=7 format=3 uid="uid://dngp8rkwrasq5"]
 
-[ext_resource type="PackedScene" uid="uid://gy688rbw17ao" path="res://scenes/player.tscn" id="1_rcrb6"]
+[ext_resource type="PackedScene" uid="uid://gy688rbw17ao" path="res://scenes/player1.tscn" id="1_rcrb6"]
+[ext_resource type="PackedScene" uid="uid://bgcjcwlx3qqpq" path="res://scenes/player_2.tscn" id="2_4dx20"]
 [ext_resource type="Texture2D" uid="uid://u634tx57l4r5" path="res://images/separator.png" id="2_q2wxf"]
 [ext_resource type="PackedScene" uid="uid://b6o8mexk1ndvs" path="res://scenes/ball.tscn" id="3_1fo8q"]
 
@@ -31,8 +32,11 @@ shape = SubResource("SegmentShape2D_dpq4c")
 [node name="WallRight" type="CollisionShape2D" parent="Stage/Walls"]
 shape = SubResource("SegmentShape2D_xsfoa")
 
-[node name="Player" parent="." instance=ExtResource("1_rcrb6")]
+[node name="Player1" parent="." instance=ExtResource("1_rcrb6")]
 position = Vector2(49, 183)
+
+[node name="Player2" parent="." instance=ExtResource("2_4dx20")]
+position = Vector2(591, 194)
 
 [node name="Separator" type="Sprite2D" parent="."]
 position = Vector2(320, 200)

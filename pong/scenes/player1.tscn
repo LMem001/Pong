@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2rwgt"]
 size = Vector2(6.5, 28)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player1" type="CharacterBody2D"]
 script = ExtResource("1_1mksl")
 
 [node name="Paddle" parent="." instance=ExtResource("1_pqv56")]

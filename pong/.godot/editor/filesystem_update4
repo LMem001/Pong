@@ -5,3 +5,7 @@ res://scenes/paddle.tscn
 res://scenes/player1.gd
 res://scenes/ball.gd
 res://README.md
+res://scenes/player1.tscn
+res://scenes/player_2.tscn
+res://scenes/player_2.gd
+res://Player2.gd
