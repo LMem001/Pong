@@ -1,19 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://dngp8rkwrasq5"]
+[gd_scene load_steps=10 format=3 uid="uid://dngp8rkwrasq5"]
 
 [ext_resource type="Script" path="res://scenes/pong.gd" id="1_8xo8w"]
 [ext_resource type="PackedScene" uid="uid://gy688rbw17ao" path="res://scenes/player1.tscn" id="1_rcrb6"]
 [ext_resource type="PackedScene" uid="uid://bgcjcwlx3qqpq" path="res://scenes/player_2.tscn" id="2_4dx20"]
-[ext_resource type="Texture2D" uid="uid://u634tx57l4r5" path="res://images/separator.png" id="2_q2wxf"]
+[ext_resource type="Texture2D" uid="uid://u634tx57l4r5" path="res://assets/separator.png" id="2_q2wxf"]
 [ext_resource type="PackedScene" uid="uid://b6o8mexk1ndvs" path="res://scenes/ball.tscn" id="3_1fo8q"]
+[ext_resource type="FontFile" uid="uid://cgfb3ka7wkbxh" path="res://assets/Kenney Future.ttf" id="6_mxb24"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ypls"]
-size = Vector2(652, 20)
+size = Vector2(858, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unkyo"]
-size = Vector2(642, 20)
+size = Vector2(851, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lkuda"]
-size = Vector2(25, 400)
+size = Vector2(24, 480.102)
 
 [node name="Pong" type="Node2D"]
 script = ExtResource("1_8xo8w")
@@ -24,20 +25,22 @@ layer = -100
 [node name="ColorRect" type="ColorRect" parent="Stage"]
 unique_name_in_owner = true
 anchors_preset = -1
-anchor_right = 0.998
-anchor_bottom = 1.0
+anchor_top = 0.00416667
+anchor_right = 0.998501
+anchor_bottom = 0.99375
 offset_right = 0.279968
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Walls" type="StaticBody2D" parent="Stage"]
 
 [node name="WallLeft" type="CollisionShape2D" parent="Stage/Walls"]
-position = Vector2(320, -10)
+position = Vector2(425, 30)
 shape = SubResource("RectangleShape2D_4ypls")
 debug_color = Color(0.601664, 0.542791, 0, 0.42)
 
 [node name="WallRight" type="CollisionShape2D" parent="Stage/Walls"]
-position = Vector2(320, 410)
+position = Vector2(426, 485)
 shape = SubResource("RectangleShape2D_unkyo")
 debug_color = Color(0.617461, 0.535666, 0, 0.42)
 
@@ -46,33 +49,68 @@ debug_color = Color(0.617461, 0.535666, 0, 0.42)
 [node name="GoalLeft" type="Area2D" parent="Stage/Goal"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/Goal/GoalLeft"]
-position = Vector2(12, 200)
+position = Vector2(11, 262.398)
 shape = SubResource("RectangleShape2D_lkuda")
 debug_color = Color(1, 0.274377, 0.209636, 0.42)
 
 [node name="GoalRight" type="Area2D" parent="Stage/Goal"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/Goal/GoalRight"]
-position = Vector2(626.5, 199)
+position = Vector2(842, 261.051)
 shape = SubResource("RectangleShape2D_lkuda")
 debug_color = Color(1, 0.274377, 0.209636, 0.42)
 
 [node name="Separator" type="Sprite2D" parent="Stage"]
-position = Vector2(319.5, 200)
-scale = Vector2(0.955011, 1.00528)
+position = Vector2(425.532, 240.821)
+scale = Vector2(-0.906531, 1.26086)
 texture = ExtResource("2_q2wxf")
 
 [node name="Ball" parent="." instance=ExtResource("3_1fo8q")]
 unique_name_in_owner = true
-position = Vector2(320, 200)
+position = Vector2(426, 251)
 
 [node name="Player1" parent="." groups=["Players"] instance=ExtResource("1_rcrb6")]
-position = Vector2(66, 200)
+position = Vector2(50, 249)
 safe_margin = 0.001
 
 [node name="Player2" parent="." groups=["Players"] instance=ExtResource("2_4dx20")]
-position = Vector2(573, 200)
+position = Vector2(806, 257)
 safe_margin = 0.001
+
+[node name="ResetTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Points" type="Node2D" parent="."]
+
+[node name="PlayerPoints1Label" type="Label" parent="Points"]
+unique_name_in_owner = true
+offset_left = 344.0
+offset_top = 2.0
+offset_right = 424.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("6_mxb24")
+theme_override_font_sizes/font_size = 31
+text = "0
+"
+horizontal_alignment = 2
+
+[node name="PlayerPoints2Label" type="Label" parent="Points"]
+unique_name_in_owner = true
+offset_left = 434.0
+offset_top = 2.0
+offset_right = 514.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("6_mxb24")
+theme_override_font_sizes/font_size = 31
+text = "0"
+
+[node name="Separator" type="Sprite2D" parent="Points"]
+position = Vector2(428.768, 41)
+rotation = 1.5708
+scale = Vector2(0.821798, 2.11361)
+texture = ExtResource("2_q2wxf")
 
 [connection signal="area_entered" from="Stage/Goal/GoalLeft" to="." method="_on_goal_left_area_entered"]
 [connection signal="area_entered" from="Stage/Goal/GoalRight" to="." method="_on_goal_right_area_entered"]
+[connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]

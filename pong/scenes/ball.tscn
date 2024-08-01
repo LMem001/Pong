@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6o8mexk1ndvs"]
 
-[ext_resource type="Texture2D" uid="uid://de1072qbixjca" path="res://images/ball.png" id="1_qlald"]
+[ext_resource type="Texture2D" uid="uid://de1072qbixjca" path="res://assets/ball.png" id="1_qlald"]
 
 [sub_resource type="GDScript" id="GDScript_76cwp"]
 script/source = "extends Area2D

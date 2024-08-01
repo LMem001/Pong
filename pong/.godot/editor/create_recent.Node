@@ -1,5 +1,7 @@
-Timer
+Label
 Node2D
+TextEdit
+Timer
 Node
 Area2D
 StaticBody2D

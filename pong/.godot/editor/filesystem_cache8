@@ -1,16 +1,21 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1722540640
-Player2.gd::GDScript::-1::1722507274::0::1::::<>CharacterBody2D<>::
-::res://images/::1722288688
-ball.png::CompressedTexture2D::7495267760365470272::1722198310::1722288678::1::::<><>::
-icon.png::CompressedTexture2D::4610412565129398426::1722198310::1722288678::1::::<><>::
-paddle.png::CompressedTexture2D::5232242084809609046::1722198310::1722288678::1::::<><>::
-separator.png::CompressedTexture2D::1469525481837649964::1722198310::1722288688::1::::<><>::
-::res://scenes/::1722514968
-ball.tscn::PackedScene::4593201461430610160::1722514968::0::1::::<><>::uid://de1072qbixjca::::res://images/ball.png
-paddle.tscn::PackedScene::2155670807175642067::1722514968::0::1::::<><>::uid://cgssi6xba8k7g::::res://images/paddle.png
-player1.gd::GDScript::-1::1722507274::0::1::::<>CharacterBody2D<>::
-player1.tscn::PackedScene::472621045508374430::1722514968::0::1::::<><>::res://scenes/player1.gd<>uid://5yht3h6u05qt::::res://scenes/paddle.tscn
-player_2.tscn::PackedScene::2812233699141754670::1722514968::0::1::::<><>::uid://gy688rbw17ao::::res://scenes/player1.tscn<>res://Player2.gd
-pong.gd::GDScript::-1::1722509156::0::1::::<>Node2D<>::
-pong.tscn::PackedScene::8085073880355756374::1722514968::0::1::::<><>::res://scenes/pong.gd<>uid://gy688rbw17ao::::res://scenes/player1.tscn<>uid://bgcjcwlx3qqpq::::res://scenes/player_2.tscn<>uid://u634tx57l4r5::::res://images/separator.png<>uid://b6o8mexk1ndvs::::res://scenes/ball.tscn
+::res://::1722544733
+Player2.gd::GDScript::-1::1722542259::0::1::::<>CharacterBody2D<>::
+::res://assets/::1722544733
+ball.png::CompressedTexture2D::7495267760365470272::1722198310::1722544453::1::::<><>::
+icon.png::CompressedTexture2D::4610412565129398426::1722198310::1722544453::1::::<><>::
+Kenney Future.ttf::FontFile::5204407563924028233::1722544471::1722544734::1::::<><>::
+paddle.png::CompressedTexture2D::5232242084809609046::1722198310::1722544453::1::::<><>::
+separator.png::CompressedTexture2D::1469525481837649964::1722198310::1722544453::1::::<><>::
+::res://assets/Fonts/::1722544733
+Kenney Future Narrow.ttf::FontFile::3022526983549473041::1722544471::1722544489::1::::<><>::
+Kenney Mini Square Mono.ttf::FontFile::4752962001387281419::1722544471::1722544489::1::::<><>::
+Kenney Mini Square.ttf::FontFile::8986361473720169579::1722544471::1722544489::1::::<><>::
+::res://scenes/::1722544452
+ball.tscn::PackedScene::4593201461430610160::1722544452::0::1::::<><>::uid://de1072qbixjca::::res://assets/ball.png
+paddle.tscn::PackedScene::2155670807175642067::1722544452::0::1::::<><>::uid://cgssi6xba8k7g::::res://assets/paddle.png
+player1.gd::GDScript::-1::1722541012::0::1::::<>CharacterBody2D<>::
+player1.tscn::PackedScene::472621045508374430::1722543486::0::1::::<><>::res://scenes/player1.gd<>uid://5yht3h6u05qt::::res://scenes/paddle.tscn
+player_2.tscn::PackedScene::2812233699141754670::1722543486::0::1::::<><>::uid://gy688rbw17ao::::res://scenes/player1.tscn<>res://Player2.gd
+pong.gd::GDScript::-1::1722542163::0::1::::<>Node2D<>::
+pong.tscn::PackedScene::8085073880355756374::1722544452::0::1::::<><>::res://scenes/pong.gd<>uid://gy688rbw17ao::::res://scenes/player1.tscn<>uid://bgcjcwlx3qqpq::::res://scenes/player_2.tscn<>uid://u634tx57l4r5::::res://assets/separator.png<>uid://b6o8mexk1ndvs::::res://scenes/ball.tscn

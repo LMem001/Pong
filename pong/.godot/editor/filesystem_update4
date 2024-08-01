@@ -5,3 +5,4 @@ res://scenes/pong.gd
 res://scenes/ball.tscn
 res://scenes/paddle.tscn
 res://scenes/player_2.tscn
+res://Player2.gd
