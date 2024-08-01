@@ -1,11 +1,11 @@
-Area2D
 Node2D
+Node
+Area2D
 StaticBody2D
 CollisionShape2D
 CharacterBody2D
 Sprite2D
 ColorRect
 CanvasLayer
-Node
 ParallaxLayer
 ParallaxBackground

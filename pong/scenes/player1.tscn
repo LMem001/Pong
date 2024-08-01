@@ -10,6 +10,7 @@ size = Vector2(6.5, 28)
 script = ExtResource("1_1mksl")
 
 [node name="Paddle" parent="." instance=ExtResource("1_pqv56")]
+modulate = Color(0.404155, 0.933659, 0.899376, 1)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

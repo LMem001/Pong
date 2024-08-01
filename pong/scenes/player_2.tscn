@@ -6,5 +6,8 @@
 [node name="Player2" instance=ExtResource("1_ksnt6")]
 script = ExtResource("2_qp06h")
 
+[node name="Paddle" parent="." index="0"]
+modulate = Color(0.992082, 0.257295, 0.22556, 1)
+
 [node name="Collision" parent="." index="1"]
 position = Vector2(-1, 0)
