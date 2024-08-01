@@ -5,21 +5,51 @@
 [sub_resource type="GDScript" id="GDScript_76cwp"]
 script/source = "extends Area2D
 
-var velocity = Vector2(250, 250) # Velocità iniziale della palla
+var velocity = Vector2(0, 0)
+var initial_position = Vector2()
+var body_coll
 
 func _physics_process(delta):
-	# Muovi la palla
+	# Move
 	position += velocity * delta
 
+func _ready():
+	initial_position = position
+	set_process_unhandled_input(true)
+
+func _process(delta):
+	# Move the ball if the vector is not 0
+	if velocity != Vector2(0, 0):
+		position += velocity * delta
+
+func _unhandled_input(event):
+	# Verifica se il tasto \"start_game\" è premuto e la velocità è zero
+	if event.is_action_pressed(\"start_game\") and velocity == Vector2(0, 0):
+		start_game()
+
+func start_game():
+	# set velocity
+	velocity = Vector2(230, 230) 
+	print(\"Gioco iniziato con velocità: \", velocity)
+	
+func reset_ball():
+	# Reset Ball
+	position = initial_position
+	velocity = Vector2(0, 0)
+
 func _on_body_entered(body):
-	print(\"Collisione con: \", body.name)
-	if body.name == \"Player1\" or body.name == \"Player2\":
-		print(\"Collisione con il player!\")
-		# Inverti la direzione orizzontale della palla
+	body_coll = body.name
+	print(\"Collision with: \", body_coll)
+	if body_coll == \"Player1\" or body_coll == \"Player2\":
+		print(\"Collision with player!\")
+		# Invert ball x direction
 		velocity.x = -velocity.x
-	if body.name == \"Walls\":
-		print(\"Collisione con il player!\")
-		# Inverti la direzione orizzontale della palla
+	#elif body_coll == \"GoalLeft\" or body_coll == \"GoalRight\":
+		#print(\"Goal\")
+		#reset_ball()
+	elif body_coll == \"Walls\":
+		print(\"Collision con il wall!\")
+		# Invert ball y direction
 		velocity.y = -velocity.y
 "
 

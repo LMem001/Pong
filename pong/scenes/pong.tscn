@@ -1,47 +1,78 @@
-[gd_scene load_steps=7 format=3 uid="uid://dngp8rkwrasq5"]
+[gd_scene load_steps=9 format=3 uid="uid://dngp8rkwrasq5"]
 
+[ext_resource type="Script" path="res://scenes/pong.gd" id="1_8xo8w"]
 [ext_resource type="PackedScene" uid="uid://gy688rbw17ao" path="res://scenes/player1.tscn" id="1_rcrb6"]
 [ext_resource type="PackedScene" uid="uid://bgcjcwlx3qqpq" path="res://scenes/player_2.tscn" id="2_4dx20"]
 [ext_resource type="Texture2D" uid="uid://u634tx57l4r5" path="res://images/separator.png" id="2_q2wxf"]
 [ext_resource type="PackedScene" uid="uid://b6o8mexk1ndvs" path="res://scenes/ball.tscn" id="3_1fo8q"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_dpq4c"]
-a = Vector2(642, 0)
-b = Vector2(-1, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ypls"]
+size = Vector2(652, 20)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_xsfoa"]
-a = Vector2(641, 400)
-b = Vector2(0, 399)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unkyo"]
+size = Vector2(642, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkuda"]
+size = Vector2(25, 400)
 
 [node name="Pong" type="Node2D"]
+script = ExtResource("1_8xo8w")
 
 [node name="Stage" type="CanvasLayer" parent="."]
 layer = -100
 
 [node name="ColorRect" type="ColorRect" parent="Stage"]
 unique_name_in_owner = true
-offset_right = 639.0
-offset_bottom = 400.0
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_right = 0.279968
 color = Color(0.276873, 0.315579, 0.357699, 1)
 
 [node name="Walls" type="StaticBody2D" parent="Stage"]
 
 [node name="WallLeft" type="CollisionShape2D" parent="Stage/Walls"]
-shape = SubResource("SegmentShape2D_dpq4c")
+position = Vector2(320, -10)
+shape = SubResource("RectangleShape2D_4ypls")
+debug_color = Color(0.601664, 0.542791, 0, 0.42)
 
 [node name="WallRight" type="CollisionShape2D" parent="Stage/Walls"]
-shape = SubResource("SegmentShape2D_xsfoa")
+position = Vector2(320, 410)
+shape = SubResource("RectangleShape2D_unkyo")
+debug_color = Color(0.617461, 0.535666, 0, 0.42)
 
-[node name="Player1" parent="." instance=ExtResource("1_rcrb6")]
-position = Vector2(49, 183)
+[node name="Goal" type="Node2D" parent="Stage"]
 
-[node name="Player2" parent="." instance=ExtResource("2_4dx20")]
-position = Vector2(591, 194)
+[node name="GoalLeft" type="Area2D" parent="Stage/Goal"]
 
-[node name="Separator" type="Sprite2D" parent="."]
-position = Vector2(320, 200)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/Goal/GoalLeft"]
+position = Vector2(12, 200)
+shape = SubResource("RectangleShape2D_lkuda")
+debug_color = Color(1, 0.274377, 0.209636, 0.42)
+
+[node name="GoalRight" type="Area2D" parent="Stage/Goal"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/Goal/GoalRight"]
+position = Vector2(626.5, 199)
+shape = SubResource("RectangleShape2D_lkuda")
+debug_color = Color(1, 0.274377, 0.209636, 0.42)
+
+[node name="Separator" type="Sprite2D" parent="Stage"]
+position = Vector2(319.5, 200)
 scale = Vector2(0.955011, 1.00528)
 texture = ExtResource("2_q2wxf")
 
-[node name="ball" parent="." instance=ExtResource("3_1fo8q")]
-position = Vector2(320, 187)
+[node name="Ball" parent="." instance=ExtResource("3_1fo8q")]
+unique_name_in_owner = true
+position = Vector2(320, 200)
+
+[node name="Player1" parent="." groups=["Players"] instance=ExtResource("1_rcrb6")]
+position = Vector2(66, 200)
+safe_margin = 0.001
+
+[node name="Player2" parent="." groups=["Players"] instance=ExtResource("2_4dx20")]
+position = Vector2(573, 200)
+safe_margin = 0.001
+
+[connection signal="area_entered" from="Stage/Goal/GoalLeft" to="." method="_on_goal_left_area_entered"]
+[connection signal="area_entered" from="Stage/Goal/GoalRight" to="." method="_on_goal_right_area_entered"]
