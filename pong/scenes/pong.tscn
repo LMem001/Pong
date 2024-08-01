@@ -27,7 +27,7 @@ anchors_preset = -1
 anchor_right = 0.998
 anchor_bottom = 1.0
 offset_right = 0.279968
-color = Color(0.276873, 0.315579, 0.357699, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Walls" type="StaticBody2D" parent="Stage"]
 
