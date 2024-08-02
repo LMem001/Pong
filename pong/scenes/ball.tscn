@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6o8mexk1ndvs"]
+[gd_scene load_steps=5 format=3 uid="uid://b6o8mexk1ndvs"]
 
 [ext_resource type="Texture2D" uid="uid://de1072qbixjca" path="res://assets/ball.png" id="1_qlald"]
+[ext_resource type="AudioStream" uid="uid://y57mmu5uvgsi" path="res://audio/ballsound.mp3" id="2_hwnlm"]
 
 [sub_resource type="GDScript" id="GDScript_76cwp"]
 script/source = "extends Area2D
@@ -49,14 +50,12 @@ func set_x_direction(direction):
 	
 func _on_body_entered(body):
 	body_coll = body.name
+	%BallSound.play()
 	print(\"Collision with: \", body_coll)
 	if body_coll == \"Player1\" or body_coll == \"Player2\":
 		print(\"Collision with player!\")
 		# Invert ball x direction
 		velocity.x = -velocity.x
-	#elif body_coll == \"GoalLeft\" or body_coll == \"GoalRight\":
-		#print(\"Goal\")
-		#reset_ball()
 	elif body_coll == \"Walls\":
 		print(\"Collision con il wall!\")
 		# Invert ball y direction
@@ -75,5 +74,9 @@ texture = ExtResource("1_qlald")
 [node name="BallCollision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_ffqr2")
+
+[node name="BallSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_hwnlm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
