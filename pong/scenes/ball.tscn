@@ -10,6 +10,7 @@ var velocity = Vector2(0, 0)
 var initial_position = Vector2()
 var body_coll
 var x_direction = 230
+var speed = 200
 
 func _physics_process(delta):
 	# Move
@@ -31,7 +32,7 @@ func _unhandled_input(event):
 
 func start_game():
 	# set velocity
-	velocity = Vector2(x_direction, 230) 
+	velocity = Vector2(x_direction, 230).normalized() * speed
 	print(\"Gioco iniziato con velocità: \", velocity)
 	
 func reset_ball(direction):

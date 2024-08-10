@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://5yht3h6u05qt" path="res://scenes/paddle.tscn" id="1_pqv56"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2rwgt"]
-size = Vector2(6.5, 28)
+size = Vector2(8, 44)
 
 [node name="Player1" type="CharacterBody2D"]
 script = ExtResource("1_1mksl")
@@ -14,5 +14,4 @@ modulate = Color(0.404155, 0.933659, 0.899376, 1)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0.75, 0)
 shape = SubResource("RectangleShape2D_2rwgt")

@@ -5,4 +5,5 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Pad" type="Sprite2D" parent="."]
+scale = Vector2(1, 1.59375)
 texture = ExtResource("1_0swyg")
